@@ -15,6 +15,7 @@ const cookie = {
     duration: 24 * 60 * 60 * 1000
 }
 
+
 export const encrypt = async(payload: JWTPayload) =>{
     return await new SignJWT(payload)
     .setProtectedHeader({ alg: 'HS256' })
