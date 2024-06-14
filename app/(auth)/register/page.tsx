@@ -1,3 +1,4 @@
+import { AuthButton } from "@/components/AuthButton"
 import { createUser } from "@/lib/actions/auth-actions"
 import Link from "next/link"
 
@@ -33,7 +34,7 @@ export default function Register() {
               <label htmlFor="password">Bio</label>
               <input type="text" name='bio' className='w-full h-10 p-2 rounded-md outline-none' placeholder="Write something about your self" maxLength={50} />
             </section>
-          <button formAction={createUser}className='w-36 h-10 rounded-md font-semibold text-md bg-[var(--button-bg)] p-2 self-center tracking-wide hover:bg-[var(--button-hover)]'>Register</button>
+          <AuthButton formAction={createUser} type="Register"/>
        <p className="text-center">Have an account ? <Link href={'/login'} className="text-[var(--link-text)]">Login</Link></p>          </div>
         </form>
       </section>

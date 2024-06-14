@@ -1,3 +1,4 @@
+import { AuthButton } from "@/components/AuthButton"
 import { loginUser } from "@/lib/actions/auth-actions"
 import Link from "next/link"
 
@@ -20,7 +21,7 @@ export default function Login() {
               <input type="password" name='password' className='w-full h-10 p-2 rounded-md outline-none' placeholder="Enter your password" />
             </section>
           </div>
-          <button formAction={loginUser}className='w-36 h-10 rounded-md font-semibold text-md bg-[var(--button-bg)] p-2 self-center tracking-wide hover:bg-[var(--button-hover)]'>Login</button>
+          <AuthButton formAction={loginUser} type="Login" />
         <p className="text-center">Don&apos;t an account ? <Link href={'/register'} className="text-[var(--secondary-text)]">Login</Link></p>
         </form>
       </section>

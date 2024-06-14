@@ -1,9 +1,11 @@
 import {
+  integer,
     pgTable,
     serial,
     text,
     timestamp,
     uniqueIndex,
+    uuid,
   } from 'drizzle-orm/pg-core'
 import { InferSelectModel, InferInsertModel } from 'drizzle-orm'
 
@@ -25,5 +27,11 @@ export const UsersTable = pgTable(
     }
   )
   
+  export const Tasks = pgTable('tasks', {
+    id: uuid('id').defaultRandom().primaryKey(),
+    title: text('title').notNull(),
+    description: text('description'),
+    user_id: integer('user_id').references(() => UsersTable.id)
+  })
   export type User = InferSelectModel<typeof UsersTable>
   export type NewUser = InferInsertModel<typeof UsersTable>

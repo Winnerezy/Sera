@@ -3,6 +3,7 @@ import { db } from "../schemas/drizzle"
 import { UsersTable } from "../schemas/schema"
 import { and, eq } from "drizzle-orm"
 import bcrypt from "bcrypt"
+import { createSession } from "../sessons"
 export const register = async(userData: NewUser) => {
     try {
         const saltRounds = 10
@@ -24,6 +25,11 @@ export const login = async(userData: RegisteredUser) => {
         .from(UsersTable)
         .where(eq(UsersTable.email, userData.email));
 
+        if (result.length === 0) {
+            console.log('Invalid');
+            return;
+        }
+
         const user = result[0];
 
         const isMatch = await bcrypt.compare(userData.password, user.password);
@@ -32,12 +38,9 @@ export const login = async(userData: RegisteredUser) => {
             console.log('Login successful:', user);
         } else {
             console.log('Invalid credentials');
+            return
         }
-    if (result.length === 0) {
-        console.log('Invalid');
-        return;
-    }
-        return user
+        await createSession(user.firstname)
     } catch (error) {
         console.log(error)
     }
