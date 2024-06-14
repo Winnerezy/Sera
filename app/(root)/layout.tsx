@@ -17,7 +17,7 @@ export default function RootLayout({
     <html lang="en">
       <body className='flex'>
         <Sidebar/>
-        <main className="lg:ml-[90px] lg:flex-1 w-full min-h-screen">
+        <main className="lg:ml-[90px] lg:flex-1 w-full min-h-screen mb-[70px] lg:mb-0">
           {children}
         </main>
        <BottomBar/>
