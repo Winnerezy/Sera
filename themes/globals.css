@@ -1,0 +1,23 @@
+@import url('themes.css');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background-color: var(--page-bg);
+  color: var(--primary-text)
+}
+
+::selection {
+  background-color: var(--selection-bg);
+  color: var(--primary-text);
+}
+
+input {
+  background-color: var(--input-bg);
+}
+
+input:focus {
+  border: 1px solid var(--border-bg)
+}

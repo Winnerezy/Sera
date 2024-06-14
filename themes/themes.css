@@ -1,0 +1,15 @@
+:root {
+    --page-bg: #fafafa;
+    --primary-bg: #ffffff;
+    --secondary-bg: #a39dff;
+    --button-bg: #474aff;
+    --primary-text: #0A0A0A;
+    --secondary-text: #ffffff;
+    --link-text: #e4e4e4;
+    --button-hover: #5b8fff;
+    --selection-bg: #4f86ff;
+    --card-bg: #87d9ff;
+    --input-bg: #ffffff;
+    --border-bg: #63ceff;
+}
+
